@@ -1,7 +1,9 @@
 import HeroSlider from '../components/common/HeroSlider';
 import ClickableCard from '../components/common/ClickableCard';
-import product1 from '../../assets/product1.avif';
-import product2 from '../../assets/product2.avif';
+import bgImage1 from '../../assets/heroImage1.jpg';
+import bgImage2 from '../../assets/heroImage2.jpg';
+import bgImage3 from '../../assets/heroImage3.jpg';
+
 
 const products = [
     {
@@ -9,7 +11,7 @@ const products = [
       name: 'Product 1',
       color: 'Red',
       price: 100,
-      imageUrl: '../../assets/product1.avif',
+      imageUrl: '../../assets/heroImage1.jpg',
       topSeller: true,
     },
     {
@@ -17,14 +19,14 @@ const products = [
       name: 'Product 2',
       color: 'Blue',
       price: 200,
-      imageUrl: '../../assets/product2.avif',
+      imageUrl: '../../assets/heroImage2.jpg',
     },
     {
       id: 3,
       name: 'Product 3',
       color: 'Green',
       price: 300,
-      imageUrl: '../../assets/product1.avif',
+      imageUrl: '../../assets/heroImage3.jpg',
     },
   ];
 
@@ -32,7 +34,7 @@ export const Home = () => {
     return (
         <div>
             <HeroSlider/>
-            <div>
+            <div className='flex justify-center text-center'>
                 {products.map((product) => (
                     <ClickableCard
                     key={product.id}
