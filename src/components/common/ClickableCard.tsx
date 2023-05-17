@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
-
 interface Props {
   id: number;
   name: string;
@@ -9,26 +8,20 @@ interface Props {
   price: number;
   imageUrl: string;
   topSeller?: boolean;
+  size?: "small" | "medium" | "large" | "xl";
 }
 
-const ClickableCard: React.FC<Props> = ({
-  id,
-  name,
-  color,
-  price,
-  imageUrl,
-  topSeller = false,
-}) => {
-//   const navigate = useNavigate();
+const ClickableCard: React.FC<Props> = ({ id, name, color, price, imageUrl, topSeller = false, size = "medium" }) => {
+  const navigate = useNavigate();
 
-//   const handleClick = () => {
-//     navigate(`/product/${id}`);
-//   };
+  const handleClick = () => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <Card
       className="cursor-pointer transform hover:scale-105 transition duration-300 ease-in-out"
-    //   onClick={handleClick}
+      onClick={handleClick}
     >
       <CardMedia
         component="img"
@@ -45,22 +38,14 @@ const ClickableCard: React.FC<Props> = ({
           Top Seller
         </Typography>
       )}
-      <CardContent className="bg-gray-100 p-3">
+      <CardContent className={`bg-gray-100 p-3 ${size}`}>
         <Typography variant="h5" component="h2" className="text-lg font-medium">
           {name}
         </Typography>
-        <Typography
-          variant="subtitle2"
-          color="textSecondary"
-          className="text-sm font-medium text-gray-600"
-        >
+        <Typography variant="subtitle2" color="textSecondary" className="text-sm font-medium text-gray-600">
           Color: {color}
         </Typography>
-        <Typography
-          variant="subtitle2"
-          color="textSecondary"
-          className="text-sm font-medium text-gray-600"
-        >
+        <Typography variant="subtitle2" color="textSecondary" className="text-sm font-medium text-gray-600">
           ${price}
         </Typography>
       </CardContent>
