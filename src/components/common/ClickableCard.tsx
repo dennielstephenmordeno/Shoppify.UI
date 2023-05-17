@@ -8,10 +8,10 @@ interface Props {
   price: number;
   imageUrl: string;
   topSeller?: boolean;
-  size?: "small" | "medium" | "large" | "xl";
+  size?: 'small' | 'medium' | 'large' | 'xl';
 }
 
-const ClickableCard: React.FC<Props> = ({ id, name, color, price, imageUrl, topSeller = false, size = "medium" }) => {
+const ClickableCard: React.FC<Props> = ({ id, name, color, price, imageUrl, topSeller = false, size = 'medium' }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
