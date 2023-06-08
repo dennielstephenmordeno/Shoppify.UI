@@ -29,13 +29,27 @@ const ClickableCard: React.FC<Props> = ({
     navigate(`/product/${id}`);
   };
 
+  const getSizeDimensions = (size: Props['size']) => {
+    switch (size) {
+      case 'small':
+        return { width: '200px', height: '300px' };
+      case 'medium':
+        return { width: '250px', height: '350px' };
+      case 'large':
+        return { width: '300px', height: '400px' };
+      case 'xl':
+        return { width: '350px', height: '450px' };
+      default:
+        return { width: '250px', height: '350px' };
+    }
+  };
+
   const cardStyle = {
     backgroundImage: `url(${imageUrl})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     borderRadius: '10px',
-    width: '250px',
-    height: '350px',
+    ...getSizeDimensions(size),
   };
 
   const cardHoverStyle = {
@@ -43,8 +57,7 @@ const ClickableCard: React.FC<Props> = ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     borderRadius: '10px',
-    width: '250px',
-    height: '350px',
+    ...getSizeDimensions(size),
   };
 
   const cardContentClassName = `bg-gray-100/50 p-3 ${
@@ -87,7 +100,8 @@ const ClickableCard: React.FC<Props> = ({
         </Typography>
       </CardContent>
     </Card>
-  );
-};
-
-export default ClickableCard;
+    );
+  };
+  
+  export default ClickableCard;
+     
