@@ -32,13 +32,13 @@ const ClickableCard: React.FC<Props> = ({
   const getSizeDimensions = (size: Props['size']) => {
     switch (size) {
       case 'small':
-        return { width: '200px', height: '300px' };
+        return { width: '200px', height: '300px', gridColumn: 'span 1', gridRow: 'span 2' };
       case 'medium':
-        return { width: '250px', height: '350px' };
+        return { width: '250px', height: '350px', gridColumn: 'span 2', gridRow: 'span 3' };
       case 'large':
-        return { width: '300px', height: '400px' };
+        return { width: '300px', height: '400px', gridColumn: 'span 3', gridRow: 'span 4' };
       case 'xl':
-        return { width: '350px', height: '450px' };
+        return { width: '350px', height: '450px', gridColumn: 'span 4', gridRow: 'span 5' };
       default:
         return { width: '250px', height: '350px' };
     }
@@ -66,7 +66,9 @@ const ClickableCard: React.FC<Props> = ({
 
   return (
     <Card
-      className="cursor-pointer transform hover:scale-105 transition duration-300 ease-in-out"
+      className={`cursor-pointer transform hover:scale-105 transition duration-300 ease-in-out ${
+        size === 'small' ? 'col-span-1 row-span-2' : size === 'medium' ? 'col-span-2 row-span-3' : size === 'large' ? 'col-span-3 row-span-4' : 'col-span-4 row-span-5'
+      }`}
       onClick={handleClick}
       style={cardStyle}
       elevation={3}
@@ -100,8 +102,7 @@ const ClickableCard: React.FC<Props> = ({
         </Typography>
       </CardContent>
     </Card>
-    );
-  };
-  
-  export default ClickableCard;
-     
+  );
+};
+
+export default ClickableCard;
