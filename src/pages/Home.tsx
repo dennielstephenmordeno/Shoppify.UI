@@ -1,11 +1,15 @@
-import HeroSlider from '../components/common/HeroSlider';
-import ClickableCard from '../components/common/ClickableCard';
-import bgImage1 from '../assets/heroImage1.jpg';
-import bgImage2 from '../assets/heroImage2.jpg';
-import bgImage3 from '../assets/heroImage3.jpg';
-import product1 from '../assets/product1.avif';
-import product1a from '../assets/product2.avif';
-
+import HeroSlider from '../components/common/HeroSlider'
+import ClickableCard from '../components/common/ClickableCard'
+import bgImage1 from '../assets/heroImage1.jpg'
+import bgImage2 from '../assets/heroImage2.jpg'
+import bgImage3 from '../assets/heroImage3.jpg'
+import product1 from '../assets/product1.avif'
+import product1a from '../assets/product2.avif'
+import shoe1 from '../assets/shoe1.jpg'
+import shoe2 from '../assets/shoe2.jpg'
+import shoe3 from '../assets/shoe3.jpg'
+import shoe4 from '../assets/shoe4.jpg'
+import shoe5 from '../assets/shoe5.jpg'
 
 // const products = [
 //     {
@@ -35,8 +39,8 @@ import product1a from '../assets/product2.avif';
 export const Home = () => {
     return (
         <div>
-            <HeroSlider/>
-            <div className="flex justify-center items-center h-screen gap-3">
+            <HeroSlider />
+            <div className='flex justify-center items-center h-screen gap-3'>
                 {/* {products.map((product) => (
                     <ClickableCard
                     key={product.id}
@@ -49,42 +53,42 @@ export const Home = () => {
                     />
                 ))} */}
                 <ClickableCard
-                  id={2}
-                  name="Product 2"
-                  color="Red"
-                  price={14.99}
-                  imageUrl={bgImage1}
-                  hoverImageUrl={bgImage2}
-                  size="xl"
+                    id={2}
+                    name='Product 2'
+                    color='Red'
+                    price={14.99}
+                    imageUrl={shoe1}
+                    hoverImageUrl={shoe1}
+                    size='xl'
                 />
                 <ClickableCard
-                  id={2}
-                  name="Product 2"
-                  color="Red"
-                  price={14.99}
-                  imageUrl={bgImage2}
-                  hoverImageUrl={bgImage3}
-                  size="small"
+                    id={2}
+                    name='Product 2'
+                    color='Red'
+                    price={14.99}
+                    imageUrl={shoe3}
+                    hoverImageUrl={shoe2}
+                    size='small'
                 />
                 <ClickableCard
-                  id={2}
-                  name="Product 2"
-                  color="Red"
-                  price={14.99}
-                  imageUrl={bgImage1}
-                  hoverImageUrl={bgImage2}
-                  size="large"
+                    id={2}
+                    name='Product 2'
+                    color='Red'
+                    price={14.99}
+                    imageUrl={shoe4}
+                    hoverImageUrl={shoe5}
+                    size='large'
                 />
                 <ClickableCard
-                  id={2}
-                  name="Product 2"
-                  color="Red"
-                  price={14.99}
-                  imageUrl={product1}
-                  hoverImageUrl={product1a}
-                  size="medium"
+                    id={2}
+                    name='Product 2'
+                    color='Red'
+                    price={14.99}
+                    imageUrl={product1}
+                    hoverImageUrl={product1a}
+                    size='medium'
                 />
             </div>
         </div>
-    );
+    )
 }
