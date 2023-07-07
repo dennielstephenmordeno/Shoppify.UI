@@ -6,6 +6,7 @@ import bgImage2 from '../assets/heroImage2.jpg';
 import bgImage3 from '../assets/heroImage3.jpg';
 import product1 from '../assets/product1.avif';
 import product1a from '../assets/product2.avif';
+import ExploreSection from '../components/ExploreSection';
 
 const cardData = [
   {
@@ -51,32 +52,35 @@ const cardData = [
 export const Home = () => {
   return (
     <div>
-      <HeroSlider />
-      <div className="flex justify-center items-center h-screen">
-        <div className="grid grid-cols-4 gap-2 md:gap-4 lg:gap-6">
-          <div className="col-span-4 lg:col-span-1 row-span-2">
-            <ClickableCard {...cardData[0]} />
-          </div>
-          <div className="col-span-2 lg:col-span-1 row-span-2">
-            <ClickableCard {...cardData[1]} />
-          </div>
-          <div className="col-span-2 lg:col-span-2 row-span-3">
-            <ClickableCard {...cardData[2]} />
-          </div>
-          <div className="col-span-3 lg:col-span-3 row-span-4">
-            <ClickableCard {...cardData[3]} />
-          </div>
-          {/* Add more card components as needed */}
-          {cardData.slice(4).map((card) => (
-            <div
+      <div className="bg-white px-60">
+        <HeroSlider />
+        <ExploreSection/>
+        <div className="flex justify-center items-center h-screen">
+          <div className="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6">
+            <div className="col-span-4 lg:col-span-1 row-span-2">
+              <ClickableCard {...cardData[0]} />
+            </div>
+            <div className="col-span-2 lg:col-span-1 row-span-2">
+              <ClickableCard {...cardData[1]} />
+            </div>
+            <div className="col-span-2 lg:col-span-2 row-span-3">
+              <ClickableCard {...cardData[2]} />
+            </div>
+            <div className="col-span-3 lg:col-span-3 row-span-4">
+              <ClickableCard {...cardData[3]} />
+            </div>
+            {/* Add more card components as needed */}
+            {cardData.slice(4).map((card) => (
+              <div
               key={card.id}
               className={`col-span-1 lg:col-span-1 ${
                 card.size === 'small' ? 'row-span-2 sm:col-span-2 md:col-span-1' : 'row-span-3 sm:col-span-1 md:col-span-1'
               }`}
-            >
-              <ClickableCard {...card} />
-            </div>
-          ))}
+              >
+                <ClickableCard {...card} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

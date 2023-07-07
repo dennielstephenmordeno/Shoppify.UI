@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-import bgImage1 from '../../assets/heroImage1.jpg';
+import bgImage3 from '../../assets/heroImage1.jpg';
 import bgImage2 from '../../assets/heroImage2.jpg';
-import bgImage3 from '../../assets/heroImage3.jpg';
+import bgImage1 from '../../assets/heroImage3.jpg';
 
 const images = [bgImage1, bgImage2, bgImage3];
 
@@ -19,7 +19,15 @@ const HeroSlider = () => {
   };
 
   return (
-    <Box sx={{ position: 'relative', width: '100%', height: '500px' }}>
+    <Box
+      sx={{
+        position: 'relative',
+        width: '80vw',
+        height: '80vh',
+        borderRadius: '10px', // Add border radius to make corners rounded
+        overflow: 'hidden', // Add overflow hidden to hide the rounded corners of child elements
+      }}
+    >
       {images.map((image, index) => (
         <Box
           key={index}
@@ -32,7 +40,9 @@ const HeroSlider = () => {
             opacity: index === activeIndex ? 1 : 0,
             transition: 'opacity 500ms ease-in-out',
             background: `linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url(${image}) no-repeat center center fixed`,
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            borderRadius: '10px', // Add border radius to make corners rounded
           }}
         />
       ))}

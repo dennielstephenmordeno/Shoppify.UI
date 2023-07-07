@@ -6,12 +6,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import reactLogo from '../../assets/react.svg';
 
-const profiles = ['Profile', 'My Orders', 'Login']
+const profiles = ['Profile', 'My Orders', 'Login'];
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
-  
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -22,80 +21,80 @@ const Navbar = () => {
   };
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget)
+    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
+    setAnchorElUser(null);
   };
 
   return (
-    <AppBar elevation={0} className='sticky bg-white/30 backdrop-blur-xl'>
+    <AppBar elevation={0} className="sticky bg-white/30 backdrop-blur-xl">
       <Toolbar className="flex justify-between">
         {/* Logo */}
         <Link to="/">
           <Button className="flex items-center gap-2">
             <img src={reactLogo} alt="Logo" className="h-8" />
-            <Typography variant="h6" className=" text-black font-sans">Shoppify</Typography>
+            <Typography variant="h6" className="text-xl text-black font-sans">
+              Shoppify
+            </Typography>
           </Button>
         </Link>
 
         {/* Middle Navigation */}
         <nav className="hidden md:block">
           <Link to="/">
-            <Button className="mx-2 text-black">
-              Mens
-            </Button>
+            <Button className="mx-2 text-black text-lg">Mens</Button>
           </Link>
           <Link to="/">
-            <Button className="mx-2 text-black">
-              Womens
-            </Button>
+            <Button className="mx-2 text-black text-lg">Womens</Button>
           </Link>
           <Link to="/">
-            <Button className="mx-2 text-black">
-              Accessories
-            </Button>
+            <Button className="mx-2 text-black text-lg">Accessories</Button>
           </Link>
           <Link to="/about">
-            <Button className="mx-2 text-black">
-              About
-            </Button>
+            <Button className="mx-2 text-black text-lg">About</Button>
           </Link>
         </nav>
 
         {/* Profile and Cart */}
         <div className="flex items-center gap-4">
-          <IconButton onClick={handleOpenUserMenu} onMouseOver={handleOpenUserMenu} className='fill-black' aria-label="Profile">
+          <IconButton
+            onClick={handleOpenUserMenu}
+            onMouseOver={handleOpenUserMenu}
+            className="fill-black"
+            aria-label="Profile"
+          >
             <AccountCircleIcon />
           </IconButton>
           <Menu
-              sx={{ mt: '45px' }}
-              id='menu-appbar'
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              MenuListProps={{ onMouseLeave: handleCloseUserMenu }}
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+            MenuListProps={{ onMouseLeave: handleCloseUserMenu }}
           >
-              {profiles.map((profile) => (
-                  <MenuItem key={profile} onClick={handleCloseUserMenu}>
-                      <Typography textAlign='center'>{profile}</Typography>
-                  </MenuItem>
-              ))}
+            {profiles.map((profile) => (
+              <MenuItem key={profile} onClick={handleCloseUserMenu}>
+                <Typography variant="subtitle1" textAlign="center">
+                  {profile}
+                </Typography>
+              </MenuItem>
+            ))}
           </Menu>
-          <IconButton className='fill-black' aria-label="Shopping Cart">
+          <IconButton className="fill-black" aria-label="Shopping Cart">
             <ShoppingCartIcon />
           </IconButton>
-
 
           {/* Hamburger menu for mobile */}
           <IconButton
@@ -105,7 +104,7 @@ const Navbar = () => {
             onClick={handleDrawerOpen}
             className="md:hidden"
           >
-            <MenuIcon className='fill-black' />
+            <MenuIcon className="fill-black" />
           </IconButton>
 
           {/* Mobile Navigation Drawer */}
